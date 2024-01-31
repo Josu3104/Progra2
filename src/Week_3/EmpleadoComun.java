@@ -63,5 +63,7 @@ public class EmpleadoComun extends Empleado implements Empleable {
         System.out.println("");
 
     }
+    
+  
 
 }
