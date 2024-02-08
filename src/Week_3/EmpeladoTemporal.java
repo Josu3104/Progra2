@@ -20,4 +20,33 @@ public final class EmpeladoTemporal extends EmpleadoComun {
         finContrato = Calendar.getInstance();
     }
 
+    @Override
+    public double pagar() {
+        Calendar hoy = Calendar.getInstance();
+        if (hoy.before(finContrato)) {
+            return super.pagar();
+        }
+        return 0;
+    }
+
+    public Calendar getFinContrato() {
+        return finContrato;
+    }
+
+    public void setFinContrato(int year, int mes, int dia) {
+        Calendar fin = Calendar.getInstance();
+        Calendar hoy = Calendar.getInstance();
+        fin.set(year, mes, dia);
+        if(fin.after(hoy))
+        this.finContrato.set(year, mes, dia);
+        
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" fin contrato: "+finContrato.getTime();
+    }
+    
+    
+
 }
